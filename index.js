@@ -118,7 +118,7 @@ function restart() {
   simulation.alpha(1).restart();
   $("#problabel").text("p: " + p + "%")
   $("#nodelabel").text("Number of Nodes: " + numberOfNodes)
-  $("#links").text("Number of edges: " + edges.length);
+  $("#links").text("Number of Edges: " + edges.length);
 }
 
 function getChargeStrength() {
