@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>D3 Experimentation</title>
+</head>
+<body>
+
+<style>
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+label {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+</style>
+
+<form>
+  <label for="nodes">Number of Nodes:</label>
+  <input type="range" name="nodes" id="nodes" value="50" min="0" max="1000">
+
+  <label for="prob">p:</label>
+  <input type="range" name="prob" id="prob" value="50" min="0" max="100">
+</form>
+
+<svg width="960" height="600" id="graph">
+</svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="jquery-3.1.1.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
