@@ -5,33 +5,37 @@
 </head>
 <body>
 
-<style>
+  <style>
 
-.links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
-}
+    .links line {
+      stroke: #999;
+      stroke-opacity: 0.6;
+    }
 
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
+    .nodes circle {
+      stroke: #fff;
+      stroke-width: 1.5px;
+    }
 
-label {
-	padding-right: 10px;
-	padding-left: 10px;
-}
+    label, button, div {
+     padding-right: 10px;
+     padding-left: 10px;
+   }
 
-</style>
+ </style>
 
-<form>
-  <label for="nodes">Number of Nodes:</label>
-  <input type="range" name="nodes" id="nodes" value="50" min="0" max="100">
+ <h1>Erdos-Renyi Model</h1>
 
-  <label for="prob">p:</label>
-  <input type="range" name="prob" id="prob" value="5" min="0" max="100">
+ <form>
+  <label id= "nodelabel" for="nodes">Number of Nodes:</label>
+  <input type="range" name="nodes" id="nodes" value="100" min="0" max="400">
+
+  <label id = "problabel" for="prob">p:</label>
+  <input type="range" name="prob" id="prob" value="5" min="1" max="100">
+  <button type = "button" id="refresh">Refresh Graph</button>
 </form>
 
+<div id= "links"></div>
 <svg width="960" height="600" id="graph">
 </svg>
 

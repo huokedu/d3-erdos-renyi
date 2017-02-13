@@ -47,7 +47,6 @@ function ticked() {
 
 var simulation = d3.forceSimulation()
 .force("link", d3.forceLink().id(function(d) { return 1; }))
-.force("charge", d3.forceManyBody().strength(-5))
 .force("center", d3.forceCenter(width / 2, height / 2))
 .on("tick", ticked).alphaTarget(1);
 
@@ -85,6 +84,11 @@ $('#prob').on('input', function() {
   restart();
 });
 
+$("#refresh").click(function() {
+  updateGraph();
+  restart();
+})
+
 function restart() {
   node = node.data(nodes);
 
@@ -108,9 +112,22 @@ function restart() {
 
   link.exit().remove();
   simulation.nodes(nodes);
-
+  simulation.force("charge", d3.forceManyBody().strength(getChargeStrength()));
   simulation.force("link").links(edges);
 
   simulation.alpha(1).restart();
+  $("#problabel").text("p: " + p + "%")
+  $("#nodelabel").text("Number of Nodes: " + numberOfNodes)
+  $("#links").text("Number of edges: " + edges.length);
+}
+
+function getChargeStrength() {
+  if (p == 1) {
+    return -5;
+  } else if (numberOfNodes < 50) {
+    return -5 * p;
+  }
+
+  return -5 * p - 1/10 * numberOfNodes;
 }
 
